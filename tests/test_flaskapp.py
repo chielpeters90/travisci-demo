@@ -21,14 +21,14 @@ class FlaskTestCase(unittest.TestCase):
     # TODO DEFINE TWO MORE TESTS ON THE END POINTS
 
     def test_uppercase(self):
-        response = self.app.get('/touppercase?s=jadoooeeei')
-        resp = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(resp['answer'], 'JADOOOEEEI', 'Uppercase endpoint failed known answer jadoooeeei = JADOOOEEEI')
-
-    def test_uppercase(self):
         response = self.app.get('/touppercase?s=OKEDOEI')
         resp = json.loads(response.data.decode('utf-8'))
         self.assertEqual(resp['answer'], 'OKEDOEI', 'Uppercase endpoint failed known answer OKEDOEI = OKEDOEI')
+
+    def test_home(self):
+        response = self.app.get('/')
+        resp = response.data.decode('utf-8')
+        self.assertEqual(resp, 'Hello World!', 'Home endpoint failed known answer "Hello World!".')
 
 
 if __name__ == '__main__':
