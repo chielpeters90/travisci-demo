@@ -23,7 +23,7 @@ class FlaskTestCase(unittest.TestCase):
     def test_toupper(self):
         response = self.app.get('/touppercase?s=hello')
         resp = json.loads(response.data.decode())
-        self.assertEqual(resp['answer'], 'HELLO', 'euh')
+        self.assertEqual(resp['answer'], 1, 'euh')
 
 if __name__ == '__main__':
     unittest.main()
