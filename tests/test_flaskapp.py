@@ -21,9 +21,9 @@ class FlaskTestCase(unittest.TestCase):
     # TODO DEFINE TWO MORE TESTS ON THE END POINTS
 
     def test_toupper(self):
-        response = self.app.get('/touppercase?s=hello')
-        resp = json.loads(response.data.decode())
-        self.assertEqual(resp['answer'], 1, 'euh')
+        response = self.app.get('/touppercase?s=h')
+        resp = response.data.decode()
+        self.assertEqual(resp, 'H', 'Upper should be H')
 
 if __name__ == '__main__':
     unittest.main()
