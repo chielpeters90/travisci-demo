@@ -25,5 +25,11 @@ class FlaskTestCase(unittest.TestCase):
         resp = response.data.decode()
         self.assertEqual(resp, 'H', 'Upper should be H')
 
+    def test_hello(self):
+        response = self.app.get('/touppercase?s=hello')
+        resp = response.data.decode()
+        self.assertEqual(resp, 'HELLO', 'UPPER should be HELLO')
+
+
 if __name__ == '__main__':
     unittest.main()
